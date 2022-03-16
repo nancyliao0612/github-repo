@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from "react-router-dom";
+import RepoList from "./RepoList";
+import { useState, useEffect } from "react";
 
 function App() {
+  const [repo, setRepo] = useState([]);
+  const [username, setUsername] = useState("nancyliao0612");
+  const url = "https://api.github.com/users/";
+
+  useEffect(() => {
+    fetch(`${url}${username}/repos`)
+      .then((resp) => resp.json())
+      .then((data) => setRepo(data));
+
+    // if (repo) {
+    //   const newRepo = repo.map((item) => {
+    //     const { name, stargazers_count } = item;
+    //     return {
+    //       name: name,
+    //       startCount: stargazers_count,
+    //     };
+    //   });
+    //   console.log(newRepo);
+    //   setRepo(newRepo);
+    // } else {
+    //   setRepo([]);
+    // }
+  }, [username]);
+  console.log(repo);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Route path={`/users/:username/repos`}>
+        <RepoList repo={repo} />
+      </Route>
     </div>
   );
 }
