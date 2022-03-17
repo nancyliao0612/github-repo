@@ -3,29 +3,27 @@ import RepoList from "./RepoList";
 import { useState, useEffect } from "react";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [repo, setRepo] = useState([]);
   const [username, setUsername] = useState("nancyliao0612");
   const url = "https://api.github.com/users/";
 
-  useEffect(() => {
-    fetch(`${url}${username}/repos`)
-      .then((resp) => resp.json())
-      .then((data) => setRepo(data));
+  const fetchRepos = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch(`${url}${username}/repos`);
+      const data = await response.json();
+      setRepo(data);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+    }
+  };
 
-    // if (repo) {
-    //   const newRepo = repo.map((item) => {
-    //     const { name, stargazers_count } = item;
-    //     return {
-    //       name: name,
-    //       startCount: stargazers_count,
-    //     };
-    //   });
-    //   console.log(newRepo);
-    //   setRepo(newRepo);
-    // } else {
-    //   setRepo([]);
-    // }
-  }, [username]);
+  useEffect(() => {
+    fetchRepos();
+  }, []);
+
   console.log(repo);
 
   return (
@@ -33,6 +31,7 @@ function App() {
       <Route path={`/users/:username/repos`}>
         <RepoList repo={repo} />
       </Route>
+      {loading && <h2>Loading...</h2>}
     </div>
   );
 }
