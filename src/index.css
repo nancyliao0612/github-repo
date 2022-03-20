@@ -27,6 +27,70 @@ body {
 
 /*
 =============== 
+App - enter a username
+===============
+*/
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.username-inputbox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  padding: 30px;
+  line-height: 40px;
+  background: #fff;
+  width: 80%;
+  max-width: 500px;
+  height: auto;
+}
+
+.username-inputbox > h3 {
+  color: var(--clr-primary-dark-blue);
+  letter-spacing: 0.7px;
+}
+
+.username-inputbox > input {
+  border-style: none;
+  outline: none;
+  text-indent: 10px;
+  border-bottom: solid 1px var(--clr-primary-dark-grey);
+  width: 90%;
+  height: 40px;
+  font-size: 15px;
+  color: var(--clr-primary-dark-grey);
+}
+
+.username-inputbox > a {
+  text-decoration: none;
+  background-color: var(--clr-primary-dark-blue);
+  opacity: 50%;
+  width: 60%;
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  /* height: 40px; */
+}
+
+.username-inputbox > a:hover {
+  font-weight: 700;
+  opacity: 70%;
+}
+
+@media screen and (max-width: 576px) {
+  .username-inputbox > a {
+    width: 80%;
+  }
+}
+
+/*
+=============== 
 Header
 ===============
 */
