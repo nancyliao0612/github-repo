@@ -20,7 +20,7 @@ function RepoDetail() {
       .then((data) => setRepoDetail(data));
   }, []);
 
-  console.log(repoDetail);
+  // console.log(repoDetail);
 
   return (
     <>
