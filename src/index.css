@@ -21,7 +21,7 @@ Variables
 
 body {
   background: var(--clr-primary-light-blue);
-  color: var(--clr-primary-light-grey);
+  /* color: var(--clr-primary-light-grey); */
   font-family: "Noto Sans", sans-serif;
 }
 
@@ -108,6 +108,14 @@ Header
 
 .header-container > h2 {
   margin-top: 10px;
+  color: var(--clr-primary-dark-blue);
+}
+
+.header-container > p {
+  color: var(--clr-primary-dark-grey);
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .devider {
@@ -126,19 +134,28 @@ Header
 Repo List
 ===============
 */
-.repo-list {
+
+.repo-container {
   background: #fff;
   width: 85%;
+  max-width: 700px;
   margin: 20px auto;
   padding: 20px 30px;
+  border-radius: 5px;
 }
 
-.repo-list > h3 {
-  color: var(--clr-primary-dark-blue);
-}
-
-.repo-list > p {
+.repo-container > p {
   margin-top: 10px;
+}
+
+.repo-container > a {
+  text-decoration: none;
+  color: var(--clr-primary-light-grey);
+}
+
+.repo-container > a > h3,
+.repo-container > h3 {
+  color: var(--clr-primary-dark-blue);
 }
 
 .repo-info-container {
@@ -150,4 +167,63 @@ Repo List
 .repo-info-container > p {
   margin-right: 20px;
   margin-left: 5px;
+}
+
+.loading-message {
+  width: 85%;
+  margin: 20px auto;
+  padding: 20px 10px;
+  font-size: 1.2rem;
+  color: var(--clr-primary-dark-blue);
+}
+
+/*
+=============== 
+Repo Detail
+===============
+*/
+
+.repo-detail {
+  display: flex;
+  align-items: center;
+}
+
+.repo-detail > h3,
+.repo-detail > a > svg:hover {
+  color: var(--clr-primary-dark-blue);
+}
+
+.repo-detail > a {
+  font-size: 1.2rem;
+  margin-left: 5px;
+  cursor: pointer;
+  display: flex;
+}
+
+.repo-detail > a > svg {
+  align-items: center;
+}
+
+.repo-detailInfo-container {
+  margin: 15px 0;
+  color: var(--clr-primary-light-grey);
+  line-height: 1.8rem;
+}
+
+.repo-detailInfo-container > h4 {
+  color: var(--clr-primary-dark-grey);
+}
+
+.repo-icons {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.repo-icons > p {
+  margin-right: 20px;
+}
+
+.repo-icons > svg {
+  margin-right: 5px;
 }

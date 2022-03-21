@@ -1,6 +1,7 @@
 import { Route, Switch, Link } from "react-router-dom";
 import { useState } from "react";
 import Repo from "./Repo";
+import RepoDetail from "./RepoDetail";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -21,12 +22,15 @@ function App() {
               name="username"
               placeholder="username"
             />
-            <Link to={`users/${username}/repos`}>Get the repositories</Link>
+            <Link to={`/users/${username}/repos`}>Get the repositories</Link>
           </div>
         </main>
       </Route>
-      <Route path={`/users/${username}/repos`}>
-        <Repo username={username} />
+      <Route exact path={`/users/:username/repos`}>
+        <Repo />
+      </Route>
+      <Route path={`/users/:username/repos/:repo`}>
+        <RepoDetail />
       </Route>
     </Switch>
   );

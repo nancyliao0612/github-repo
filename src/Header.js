@@ -6,6 +6,7 @@ function Header(props) {
     <div className="header-container">
       {/* <img src={avatar_url} alt="" /> */}
       <h2>{props.username}</h2>
+      {props.children}
       <div className="devider">
         <BsDot className="dot" />
         <BsDot className="dot" />
