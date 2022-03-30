@@ -47,13 +47,15 @@ function Repo(props) {
   }, []);
 
   return (
-    <div>
-      <Header username={username}>
-        <p>repository lists</p>
-      </Header>
-      <RepoList repo={repo} username={username} />
-      {loading && <h2 className="loading-message">Loading...</h2>}
-    </div>
+    <>
+      <div>
+        <Header username={username}>
+          <p>repository lists</p>
+        </Header>
+        <RepoList repo={repo} username={username} />
+        {loading && <h2 className="loading-message">Loading...</h2>}
+      </div>
+    </>
   );
 }
 
