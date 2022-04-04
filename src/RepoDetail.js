@@ -20,8 +20,6 @@ function RepoDetail() {
       .then((data) => setRepoDetail(data));
   }, []);
 
-  // console.log(repoDetail);
-
   return (
     <>
       <Header username={username}>

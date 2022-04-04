@@ -21,7 +21,6 @@ Variables
 
 body {
   background: var(--clr-primary-light-blue);
-  /* color: var(--clr-primary-light-grey); */
   font-family: "Noto Sans", sans-serif;
 }
 
@@ -203,6 +202,7 @@ Repo Detail
 
 .repo-detail > a > svg {
   align-items: center;
+  color: var(--clr-primary-dark-grey);
 }
 
 .repo-detailInfo-container {

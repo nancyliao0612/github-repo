@@ -6,6 +6,7 @@ import RepoDetail from "./RepoDetail";
 function App() {
   const [username, setUsername] = useState("");
 
+  // get the github username from user
   function handleChange(e) {
     setUsername(e.target.value);
   }

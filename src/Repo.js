@@ -1,10 +1,9 @@
-import { Switch, Route } from "react-router-dom";
 import RepoList from "./RepoList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Header from "./Header";
 
-function Repo(props) {
+function Repo() {
   const [loading, setLoading] = useState(false);
   const [repo, setRepo] = useState([]);
   const [page, setPage] = useState(1);
@@ -33,16 +32,18 @@ function Repo(props) {
     fetchRepos();
   }, [page]);
 
+  // infinite scroll
   useEffect(() => {
     const event = window.addEventListener("scroll", () => {
+      // check if the user is at the bottom of the document(page)
       if (
         !loading &&
         window.innerHeight + window.scrollY >= document.body.scrollHeight - 2
       ) {
-        // console.log("it worked");
         setPage((oldPage) => oldPage + 1);
       }
     });
+    // useEffect clean up function
     return () => window.removeEventListener("scroll", event);
   }, []);
 

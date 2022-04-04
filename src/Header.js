@@ -1,10 +1,8 @@
 import { BsDot } from "react-icons/bs";
 
 function Header(props) {
-  // const { avatar_url } = props.repo[0].owner;
   return (
     <div className="header-container">
-      {/* <img src={avatar_url} alt="" /> */}
       <h2>{props.username}</h2>
       {props.children}
       <div className="devider">
